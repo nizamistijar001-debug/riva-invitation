@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Untuk Riva 💌</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <button id="musicButton" class="music-button">
+        🎵 Musik
+    </button>
+
+    <audio id="backgroundMusic" loop>
+        <source src="assets/music/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Hiasan background -->
+    <div class="hearts">
+        <span>💗</span>
+        <span>✨</span>
+        <span>💖</span>
+        <span>✨</span>
+        <span>💗</span>
+    </div>
+
+    <main class="container">
+
+        <!-- ============================= -->
+        <!-- PUZZLE CARD (KARTU AWAL) -->
+        <!-- ============================= -->
+        <div class="card show" id="puzzleCard">
+            <div class="card-icon">🧩</div>
+            <h1 class="title">Susun Dulu Foto Ini! 💖</h1>
+            <p class="description">
+                Sebelum buka undangannya, coba susun puzzle foto ini sampai selesai ya, Riva! 😉
+            </p>
+
+            <!-- Container Grid Puzzle 3x3 -->
+            <div class="puzzle-container" id="puzzleContainer"></div>
+
+            <!-- Clue Gambar Contoh Hasil Akhir -->
+            <div class="puzzle-clue">
+                <p>💡 <span>Contoh Hasil Akhir:</span></p>
+                <img src="puzzle.jpg" alt="Clue Hasil Akhir" class="clue-image" />
+            </div>
+
+            <!-- Pesan Sukses setelah puzzle selesai / menyerah -->
+            <div class="puzzle-success hide" id="puzzleSuccess">
+                🎉 Yeay! Kamu berhasil menyusunnya! ✨
+            </div>
+
+            <div class="button-group">
+                <!-- Tombol Buka Undangan -->
+                <button class="primary-button" id="startInvitationButton" disabled>
+                    Buka Undangan 💌
+                </button>
+
+                <!-- Tombol Menyerah -->
+                <button class="secondary-button" id="giveUpButton">
+                    Satu kata "Menyerah" 😭
+                </button>
+            </div>
+        </div>
+
+
+        <!-- CARD 1 -->
+        <div class="card" id="firstCard">
+
+            <div class="icon">
+                💌
+            </div>
+
+            <p class="small-text">
+                ⚠️ PERHATIAN ⚠️
+            </p>
+
+            <h1>
+                Riva, jangan buka ini...
+            </h1>
+
+            <p class="description">
+                kecuali riva siap menerima<br>
+                satu pertanyaan yang cukup penting. 👀
+            </p>
+
+            <button id="openButton">
+                Tetap buka 😏
+            </button>
+
+            <p class="warning">
+                *serius, jangan dibuka kalau takut penasaran*
+            </p>
+
+        </div>
+
+
+        <!-- CARD 2 -->
+        <div class="card second-card" id="secondCard">
+
+            <div class="icon">
+                😳
+            </div>
+
+            <p class="small-text">
+                OKE RIVA...
+            </p>
+
+            <h1>
+                Jadi gini...
+            </h1>
+
+            <p class="description">
+                Sebenarnya radly mau ngajak riva pergi. 😳
+                <br><br>
+
+                Tapi ada satu masalah...
+                <br><br>
+
+                <strong>
+                    Radly belum tahu kita mau pergi ke mana. 😭
+                </strong>
+            </p>
+
+            <div class="button-area">
+                <button id="chooseButton">Bantu radly pilih 😎</button>
+                <button id="noButton">Gak mau jalan 🏃‍♂️💨</button>
+            </div>
+
+        </div>
+
+
+        <!-- CARD 3 -->
+        <div class="card choice-card" id="choiceCard">
+
+            <div class="icon">
+                📍
+            </div>
+
+            <p class="small-text">
+                SEKARANG PILIH
+            </p>
+
+            <h1>
+                Riva mau diajak ke mana? 👀
+            </h1>
+
+            <p class="description">
+                Tenang, pilihannya bebas.
+                <br>
+                Yang penting riva mau ikut, sisanya biar radly yang urus. 😎
+            </p>
+
+            <div class="choices">
+
+                <button class="choice-button" data-choice="Makan 🍜">
+                    🍜 Makan
+                </button>
+
+                <button class="choice-button" data-choice="Nonton 🎬">
+                    🎬 Nonton
+                </button>
+
+                <button class="choice-button" data-choice="Nongkrong ☕">
+                    ☕ Nongkrong
+                </button>
+
+                <button class="choice-button" data-choice="Main 🎮">
+                    🎮 Main
+                </button>
+
+                <button class="choice-button" data-choice="Jalan-jalan 🌳">
+                    🌳 Jalan-jalan
+                </button>
+
+                <button class="choice-button" data-choice="Terserah kamu 🎲">
+                    🎲 Terserah Radly aja
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD DETAIL AKTIVITAS -->
+        <div class="card detail-card" id="detailCard">
+
+            <div class="icon" id="detailIcon">
+                👀
+            </div>
+
+            <p class="small-text">
+                OKE, LANJUT 👀
+            </p>
+
+            <h1 id="detailTitle">
+                Mau pilih apa?
+            </h1>
+
+            <p class="description" id="detailDescription">
+                Sekarang tentukan detailnya.
+            </p>
+
+            <div class="detail-choices" id="detailChoices">
+
+                <!-- PILIHAN AKAN DIISI JAVASCRIPT -->
+
+            </div>
+
+            <div class="custom-choice" id="customChoice">
+
+                <input type="text" id="customInput" placeholder="Atau tulis pilihanmu sendiri..." maxlength="100">
+
+                <button id="customButton">
+                    Pakai pilihan ini ✍️
+                </button>
+
+            </div>
+
+            <button id="detailContinueButton">
+                Lanjut 😎
+            </button>
+
+        </div>
+
+
+        <!-- CARD 4 -->
+        <div class="card response-card" id="responseCard">
+
+            <div class="icon" id="responseIcon">
+                👀
+            </div>
+
+            <p class="small-text">
+                OKE...
+            </p>
+
+            <h1 id="responseTitle">
+                Pilihan diterima!
+            </h1>
+
+            <p class="description" id="responseText">
+                Mantap.
+            </p>
+
+            <button id="continueButton">
+                Lanjut 😎
+            </button>
+
+        </div>
+
+
+        <!-- CARD 5 - DATE & TIME -->
+        <div class="card date-card" id="dateCard">
+
+            <div class="icon">
+                📅
+            </div>
+
+            <p class="small-text">
+                OKE, LANJUT 👀
+            </p>
+
+            <h1>
+                Kapan kita pergi?
+            </h1>
+
+            <p class="description">
+                Sekarang tinggal tentuin harinya.
+                <br>
+                Jangan bilang "terserah" lagi ya 😭
+            </p>
+
+            <div class="date-form">
+
+                <label for="dateInput">
+                    📅 Pilih tanggal
+                </label>
+
+                <input type="date" id="dateInput">
+
+                <label for="timeInput">
+                    ⏰ Pilih waktu
+                </label>
+
+                <input type="time" id="timeInput">
+
+            </div>
+
+            <button id="dateContinueButton">
+                Lanjut 💕
+            </button>
+
+        </div>
+
+
+        <!-- CARD 6 - CONFIRMATION -->
+        <div class="card confirmation-card" id="confirmationCard">
+
+            <div class="icon">
+                💕
+            </div>
+
+            <p class="small-text">
+                OKE, FIX YA 👀
+            </p>
+
+            <h1>
+                Jadi kita ketemu! 🎉
+            </h1>
+
+            <p class="description">
+                Riva sudah memilih:
+            </p>
+
+            <div class="confirmation-info">
+
+                <div class="info-box">
+                    <span>📍</span>
+                    <strong id="confirmActivity">
+                        -
+                    </strong>
+                </div>
+
+                <div class="info-box">
+                    <span>📅</span>
+                    <strong id="confirmDate">
+                        -
+                    </strong>
+                </div>
+
+                <div class="info-box">
+                    <span>⏰</span>
+                    <strong id="confirmTime">
+                        -
+                    </strong>
+                </div>
+
+            </div>
+
+            <p class="description confirmation-text">
+                Kalau semuanya sudah benar...
+                <br><br>
+                jangan tiba-tiba menghilang ya 😭
+            </p>
+
+            <button id="finalButton">
+                IYA, GAS
+            </button>
+
+        </div>
+
+
+        <!-- CARD 7 - FINAL -->
+        <div class="card final-card" id="finalCard">
+
+            <div class="icon">
+                🎉
+            </div>
+
+            <p class="small-text">
+                YEAAY!
+            </p>
+
+            <h1>
+                Berarti kita jadi jalan! 😭
+            </h1>
+
+            <p class="description">
+                Riva, makasih ya udah mau diajak.
+                <br><br>
+
+                Sekarang tinggal satu hal...
+                <br><br>
+
+                <strong>
+                    kalo riva mau baca surat nya pencet dulu tombol kirim ke whatsapp ya, supaya radly bisa baca juga
+                    jawaban riva 😭
+                </strong>
+            </p>
+
+            <div class="final-info">
+
+                <p>
+                    📍 <span id="finalActivity">-</span>
+                </p>
+
+                <p>
+                    📅 <span id="finalDate">-</span>
+                </p>
+
+                <p>
+                    ⏰ <span id="finalTime">-</span>
+                </p>
+
+            </div>
+
+            <div class="final-message">
+                Can't wait to see you
+            </div>
+
+            <div class="button-area">
+
+                <button id="messageButton">
+                    Baca surat 💌
+                </button>
+
+                <button id="shareButton" class="whatsapp-button">
+                    Kirim ke WhatsApp 💬
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD 8 - PERSONAL MESSAGE -->
+        <div class="card message-card" id="messageCard">
+
+            <div class="icon">
+                💌
+            </div>
+
+            <p class="small-text">
+                SEBELUM KITA PERGI...
+            </p>
+
+            <h1>
+                Ada satu hal yang mau radly bilang.
+            </h1>
+
+            <div class="personal-message">
+
+                <p>
+                    Riva...
+                </p>
+
+                <p>
+                    Sebenernya Radly nggak terlalu jago bikin hal-hal kayak gini 😭
+                </p>
+
+                <p>
+                    Tapi kali ini Radly pengen bikin sesuatu yang sedikit beda.
+                </p>
+
+                <p>
+                    Jadi nanti tinggal pilih aja mau ke mana dan ngapain. 😆
+                </p>
+
+                <p>
+                    Oh iya, jangan lupa siap-siap ya.
+                </p>
+                <p>
+                    Newton menemukan gravitasi ketika sebuah apel jatuh dari pohon, tapi mungkin dia belum pernah
+                    melihatmu.
+                </p>
+                <p>
+                    Karena kalau pernah, mungkin dia akan sadar bahwa ada gaya tarik yang jauh lebih kuat
+                    daripada gravitasi yaitu tatapanmu.
+                </p>
+
+                <strong>
+                    Sampai ketemu ya, Riva. 🥰
+                </strong>
+
+            </div>
+
+            <div class="heart-big">
+                ❤️
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
