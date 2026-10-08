@@ -1,2 +1,2 @@
-# riva-invitation
+invitation
 tes
